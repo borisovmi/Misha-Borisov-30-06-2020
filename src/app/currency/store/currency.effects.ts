@@ -45,7 +45,6 @@ export class CurrencyEffects {
         return interval(currencyRequestParams.fetchInterval).pipe(
           tap(() => this.requestsCounter++),
           startWith(initialCurrencyData),
-          take(4),
           switchMap(() =>
             this.http
               .get<Currency>(
