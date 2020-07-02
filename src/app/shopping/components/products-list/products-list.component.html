@@ -1,0 +1,23 @@
+<mat-card *ngFor="let product of products">
+  <mat-card-header>
+    <mat-card-title>{{ product.name }}</mat-card-title>
+    <mat-card-subtitle>{{ product.shop.name }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      Price:
+      {{ product.price.USD | convertCurrency: currencyUpdated }}
+    </div>
+    <div>
+      Estimated Delivery: {{ product.deliveryEstDate | date: "dd.MM.yyyy" }}
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="product-actions-container">
+    <mat-checkbox [checked]="product.received" (change)="checkToggled(product)">
+      Received
+    </mat-checkbox>
+    <button mat-mini-fab color="warn" class="delete-btn" (click)="deleteItem(product)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

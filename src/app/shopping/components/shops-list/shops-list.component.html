@@ -1,0 +1,11 @@
+<mat-card *ngFor="let shop of shops" class="shop-card">
+  <mat-card-header>
+    <mat-card-title>{{ shop.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div>Total Products: {{ shop.totalProducts }}</div>
+    <div>Total Received Products: {{ shop.totalReceivedProducts }}</div>
+    <div>Total Value: {{ shop.totalValue.USD | convertCurrency: currencyUpdated }}</div>
+    <div>Total Value Received: {{ shop.totalReceivedValue.USD | convertCurrency: currencyUpdated }}</div>
+  </mat-card-content>
+</mat-card>

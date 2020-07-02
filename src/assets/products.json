@@ -1,0 +1,41 @@
+[
+  {
+    "id": "p1",
+    "name": "product 1",
+    "shop": {
+      "id": "s1",
+      "name": "shop 1"
+    },
+    "price": {
+      "USD": 2.17
+    },
+    "received": false,
+    "deliveryEstDate": "2020-06-30T20:08:21.395Z"
+  },
+  {
+    "id": "p2",
+    "name": "product 2",
+    "shop": {
+      "id": "s1",
+      "name": "shop 1"
+    },
+    "price": {
+      "USD": 4.7
+    },
+    "received": false,
+    "deliveryEstDate": "2020-07-02T20:08:21.395Z"
+  },
+  {
+    "id": "p3",
+    "name": "product 3",
+    "shop": {
+      "id": "s2",
+      "name": "shop 2"
+    },
+    "price": {
+      "USD": 25
+    },
+    "received": true,
+    "deliveryEstDate": "2020-06-29T20:08:21.395Z"
+  }
+]

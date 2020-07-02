@@ -1,0 +1,53 @@
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Product Name</mat-label>
+    <input matInput placeholder="Product Name" formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Shop</mat-label>
+    <mat-select formControlName="shopId">
+      <mat-option *ngFor="let shop of allShops" [value]="shop.id">
+        {{ shop.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Product Price</mat-label>
+    <input matInput placeholder="99.9" formControlName="priceUSD" />
+    <span matSuffix>&#36;</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Delivery Estimated Date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="deliveryEstDate"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div class="form-action">
+    <button
+      type="submit"
+      mat-raised-button
+      color="accent"
+      [disabled]="addProductForm.invalid"
+      *ngIf="!submitted"
+    >
+      Submit
+    </button>
+    <button
+      type="reset"
+      mat-raised-button
+      color="accent"
+      (click)="onResetForm()"
+      *ngIf="submitted"
+    >
+      Add another product
+    </button>
+  </div>
+</form>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "s1",
+    "name": "shop 1",
+    "totalProducts": 2,
+    "totalReceivedProducts": 0,
+    "totalValue": {
+      "USD": 6.87
+    },
+    "totalReceivedValue": {
+      "USD": 0
+    }
+  },
+  {
+    "id": "s2",
+    "name": "shop 2",
+    "totalProducts": 1,
+    "totalReceivedProducts": 1,
+    "totalValue": {
+      "USD": 25
+    },
+    "totalReceivedValue": {
+      "USD": 25
+    }
+  }
+]
