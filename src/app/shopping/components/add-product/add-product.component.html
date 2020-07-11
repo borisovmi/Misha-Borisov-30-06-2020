@@ -1,7 +1,7 @@
-<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" #formGroupDirectiveRef="ngForm">
   <mat-form-field appearance="outline">
     <mat-label>Product Name</mat-label>
-    <input matInput placeholder="Product Name" formControlName="name" />
+    <input matInput placeholder="Product Name" formControlName="name" #autoFocusedInput />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -44,7 +44,7 @@
       type="reset"
       mat-raised-button
       color="accent"
-      (click)="onResetForm()"
+      (click)="onResetForm(formGroupDirectiveRef)"
       *ngIf="submitted"
     >
       Add another product

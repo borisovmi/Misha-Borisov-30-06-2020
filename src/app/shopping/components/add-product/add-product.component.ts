@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
 import { Product, Shop } from '../../models/product';
 import { Subscription } from 'rxjs';
 import { select, Store } from '@ngrx/store';
@@ -32,6 +32,8 @@ export class AddProductComponent implements OnInit, OnDestroy {
   });
 
   submitted = false;
+
+  @ViewChild('autoFocusedInput') autoFocusedInput: ElementRef;
 
   constructor(
     private store: Store<AppState>,
@@ -70,9 +72,12 @@ export class AddProductComponent implements OnInit, OnDestroy {
     this.addProductForm.disable();
   }
 
-  onResetForm() {
+  onResetForm(formGroupDirective: FormGroupDirective) {
     this.addProductForm.enable();
     this.submitted = false;
+    this.addProductForm.reset();
+    formGroupDirective.resetForm();
+    this.autoFocusedInput.nativeElement.focus();
   }
 
   ngOnDestroy() {
