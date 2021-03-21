@@ -18,5 +18,7 @@ export class AppComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+    console.log('feature1');
+  }
 }
